@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react';
 export const useForm = (initialFValues) => {
   const [values, setValues] = useState(initialFValues);
 
+  const [errors, setErrors] = useState({});
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
@@ -12,6 +14,8 @@ export const useForm = (initialFValues) => {
   return {
     values,
     setValues,
+    errors,
+    setErrors,
     handleInputChange,
   };
 };
@@ -28,7 +32,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // kinda get this
-export const Form = (props) => {
+export const Form = (props, ...other) => {
   const classes = useStyles();
-  return <form className={classes.root}>{props.children}</form>;
+  // TODO dont really get the children bit?
+  return (
+    <form className={classes.root} {...other}>
+      {props.children}
+    </form>
+  );
 };

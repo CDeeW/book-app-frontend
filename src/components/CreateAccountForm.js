@@ -17,21 +17,55 @@ const CreateAccountForm = () => {
     firstName: '',
     lastName: '',
     email: '',
-    dob: new Date(),
+    mobile: '',
     gender: '',
+    dob: new Date(),
     password: '',
     confirmedPassword: '',
   };
 
-  const { values, setValues, handleInputChange } = useForm(initialFValues);
+  const { values, setValues, errors, setErrors, handleInputChange } =
+    useForm(initialFValues);
 
-  const handleSubmit = () => {
-    saveUserAccount(values);
+  const validate = () => {
+    let temp = {};
+
+    temp.firstName = values.firstName ? '' : 'Enter a First Name';
+
+    temp.lastName = values.lastName ? '' : 'Enter a Last Name';
+
+    temp.email = /.+@.+..+/.test(values.email) ? '' : 'Enter a valid email';
+
+    temp.mobile =
+      values.mobile.length >= 10 ? '' : 'Enter a valid mobile number';
+
+    console.log(values.password);
+    console.log(values.confirmedPassword);
+    console.log(values.password == values.confirmedPassword);
+
+    temp.confirmedPassword =
+      values.password == values.confirmedPassword
+        ? ''
+        : 'Passwords do not match';
+
+    console.log(temp.confirmedPassword);
+
+    setErrors({ ...temp });
+
+    return Object.values(temp).every((x) => x == '');
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('submit');
+    if (validate()) {
+      saveUserAccount(values);
+    }
   };
 
   return (
     <Container>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Grid container>
           <Grid item xs={6}>
             <Controls.TextInput
@@ -40,6 +74,7 @@ const CreateAccountForm = () => {
               label='First Name'
               value={values.firstName}
               onChange={handleInputChange}
+              error={errors.firstName}
             />
             <Controls.TextInput
               variant='outlined'
@@ -47,6 +82,7 @@ const CreateAccountForm = () => {
               label='Last Name'
               value={values.lastName}
               onChange={handleInputChange}
+              error={errors.lastName}
             />
             <Controls.TextInput
               variant='outlined'
@@ -54,13 +90,16 @@ const CreateAccountForm = () => {
               label='Email'
               value={values.email}
               onChange={handleInputChange}
+              error={errors.email}
             />
 
-            <Controls.DatePicker
-              name='dob'
-              label=' Date of Birth'
-              value={values.dob}
+            <Controls.TextInput
+              variant='outlined'
+              name='mobile'
+              label='Mobile'
+              value={values.mobile}
               onChange={handleInputChange}
+              error={errors.mobile}
             />
           </Grid>
           <Grid item xs={6}>
@@ -72,6 +111,13 @@ const CreateAccountForm = () => {
               items={genders}
             />
 
+            <Controls.DatePicker
+              name='dob'
+              label=' Date of Birth'
+              value={values.dob}
+              onChange={handleInputChange}
+            />
+
             <Controls.TextInput
               variant='outlined'
               name='password'
@@ -79,6 +125,7 @@ const CreateAccountForm = () => {
               type='password'
               value={values.password}
               onChange={handleInputChange}
+              //error={errors}
             />
             <Controls.TextInput
               variant='outlined'
@@ -87,6 +134,7 @@ const CreateAccountForm = () => {
               type='password'
               value={values.confirmedPassword}
               onChange={handleInputChange}
+              error={errors.confirmedPassword}
             />
             <div>
               <Controls.Button
@@ -94,7 +142,6 @@ const CreateAccountForm = () => {
                 onClick={handleSubmit}
                 color='secondary'
               />
-              <Controls.Button text='Reset' variant='contained' />
             </div>
           </Grid>
         </Grid>
