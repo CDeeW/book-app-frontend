@@ -1,6 +1,7 @@
 import Home from './pages/Home';
 import CreateAccount from './pages/CreateAccount';
-import Account from './pages/Account';
+import AccountSearch from './pages/AccountSearch';
+import AccountBookshelf from './pages/AccountBookshelf';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
@@ -11,8 +12,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/createaccount' element={<CreateAccount />} />
-
-        <Route path='/account' element={<Account />} />
+        <Route path='/accountbookshelf' element={<AccountBookshelf />} />
+        <Route path='/accountsearch' element={<AccountSearch />} />
       </Routes>
     </BrowserRouter>
   );

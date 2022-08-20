@@ -8,3 +8,12 @@ export const saveUserAccount = async (values) => {
     console.log(err);
   }
 };
+
+export const confirmUserEmailAndPassword = async (values) => {
+  try {
+    console.log('values: ');
+    console.log(values);
+  } catch (err) {
+    console.log(err);
+  }
+};

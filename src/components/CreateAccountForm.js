@@ -4,9 +4,12 @@ import { useForm, Form } from './useForm';
 import { Container, Grid } from '@material-ui/core';
 
 import Controls from './Controls';
-import { saveUserAccount } from '../services/user';
+import { saveUserAccount } from '../services/userService';
+import { useNavigate } from 'react-router-dom';
 
 const CreateAccountForm = () => {
+  let navigate = useNavigate();
+
   const genders = [
     { id: 'male', title: 'Male' },
     { id: 'female', title: 'Female' },
@@ -60,6 +63,7 @@ const CreateAccountForm = () => {
     console.log('submit');
     if (validate()) {
       saveUserAccount(values);
+      navigate('./account');
     }
   };
 

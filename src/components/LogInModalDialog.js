@@ -8,7 +8,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import LogInForm from './LogInForm';
 import Controls from '../components/Controls';
-import Account from '../pages/Account';
+import AccountBookshelf from '../pages/AccountBookshelf';
 import { useNavigate } from 'react-router-dom';
 
 const LogInModalDialog = ({ open, setOpen, handleClose }) => {
@@ -26,10 +26,10 @@ const LogInModalDialog = ({ open, setOpen, handleClose }) => {
         <DialogContentText>Enter your details to log in</DialogContentText>
         <LogInForm />
       </DialogContent>
-      <DialogActions>
+      {/* <DialogActions>
         <Controls.Button onClick={handleClose} text='Cancel' />
         <Controls.Button onClick={handleSubmit} text='Log In' />
-      </DialogActions>
+      </DialogActions> */}
     </Dialog>
   );
 };
