@@ -3,6 +3,7 @@ import { Form, useForm } from './useForm';
 import Controls from '../components/Controls';
 import { useNavigate } from 'react-router-dom';
 import { confirmUserEmailAndPassword } from '../services/userService';
+import { useCookies } from 'react-cookie';
 
 const initialFValues = {
   email: '',
@@ -12,28 +13,29 @@ const initialFValues = {
 const LogInForm = () => {
   const { values, setValues, errors, setErrors, handleInputChange } =
     useForm(initialFValues);
+
+  const [cookies, setCookie, removeCookie] = useCookies(['user']);
+
   let navigate = useNavigate();
 
   const validate = () => {
     const temp = {};
-
     temp.email = /.+@.+..+/.test(values.email) ? '' : 'Enter a valid email';
-
     temp.password = values.password ? '' : 'Enter a password';
-
-    confirmUserEmailAndPassword({ ...values });
 
     setErrors({ ...temp });
 
     return Object.values(temp).every((x) => x == '');
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (validate()) {
-      console.log('login successful');
-      navigate('./account');
+      const response = await confirmUserEmailAndPassword({ ...values });
+      console.log({ response });
+      setCookie('UserId', response.data.userId);
+      navigate('./accountbookshelf');
     } else {
       console.log('login failed');
     }
@@ -62,7 +64,6 @@ const LogInForm = () => {
 
       <div>
         <Controls.Button text='Submit' type='submit' onClick={handleSubmit} />
-        <Controls.Button text='Reset' variant='default' />
       </div>
     </Form>
   );

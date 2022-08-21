@@ -1,4 +1,9 @@
-import { Divider, ListItemText, Typography } from '@material-ui/core';
+import {
+  Divider,
+  ListItemText,
+  Typography,
+  ListItem as MuiListItem,
+} from '@material-ui/core';
 import React from 'react';
 
 const ListItem = (props) => {
@@ -6,28 +11,26 @@ const ListItem = (props) => {
 
   return (
     <>
-      <ListItem alignItems='flex-start'>
+      <MuiListItem alignItems='flex-start' onCLick={() => console.log('click')}>
         {/* <ListItemAvatar>
           <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
         </ListItemAvatar> */}
         <ListItemText
-          primary='Brunch this weekend?'
+          primary={item.title}
           secondary={
             <React.Fragment>
               <Typography
                 sx={{ display: 'inline' }}
                 component='span'
-                variant='body2'
+                variant='h1'
                 color='text.primary'
-              >
-                {item.title}
-              </Typography>
+              ></Typography>
               {item.description}
             </React.Fragment>
           }
         />
-      </ListItem>
-      <Divider variant='inset' component='li' />
+      </MuiListItem>
+      <Divider light />
     </>
   );
 };
