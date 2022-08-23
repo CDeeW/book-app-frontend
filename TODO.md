@@ -23,3 +23,13 @@ then code it in axios.
 TODO
 
 does calling an asynchronous function need to be called in another asynchronous function?
+
+TODO Tomorrow
+
+finish Login Modal
+
+Create Book component
+
+Show each Book from API search in the Account Search Page as a Book component.
+
+When Click on a Book component, it will open a modal displaying the name and description of it etc.
