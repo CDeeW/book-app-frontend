@@ -31,7 +31,6 @@ export const confirmUserEmailAndPassword = async (values) => {
     console.log(values.password);
     console.log(values);
 
-    // I do not know why it has to be a post request? get didn't work
     const response = await axios.post(URL + '/login', values);
     console.log('FRONT END: ' + JSON.stringify(response));
     return response;

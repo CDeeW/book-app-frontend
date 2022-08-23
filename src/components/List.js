@@ -40,15 +40,6 @@ const List = (props) => {
         </>
       ))}
     </>
-
-    // <MuiList sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-    //   TODO kinda confused about when we use our own components do we create a opening and closing tag for it or just an opening? what is difference?
-
-    //   TODO this listItems.map does not work probably because it is not an array...
-    //   {listItems.map((item, index) => (
-    //     <Controls.ListItem item={item} key={index} />
-    //   ))}
-    // </MuiList>
   );
 };
 

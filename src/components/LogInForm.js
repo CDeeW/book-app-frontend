@@ -42,7 +42,6 @@ const LogInForm = () => {
   };
 
   return (
-    // don't know why we need to pass in onSubmit as we just call it when the button is clicked.
     <Form onSubmit={handleSubmit}>
       <Controls.TextInput
         variant='outlined'

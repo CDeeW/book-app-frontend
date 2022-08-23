@@ -31,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// kinda get this
 export const Form = (props, ...other) => {
   const classes = useStyles();
   // TODO dont really get the children bit?

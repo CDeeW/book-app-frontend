@@ -31,7 +31,6 @@ const DatePicker = (props) => {
           format='MMM/dd/yyyy'
           name={name}
           value={value}
-          //   Kind of confused why it is "(date) =>"
           onChange={(date) => onChange(convertToDefEventPara(name, date))}
         />
       </MuiPickersUtilsProvider>

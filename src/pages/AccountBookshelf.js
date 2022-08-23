@@ -12,11 +12,11 @@ const APIKEY = 'AIzaSyDBlYPC0CKuF8f0VTN4Q01B5NlzKdPxV0A';
 const bookListItems = [
   {
     title: 'Carrie',
-    description: 'Carrie gets bullied and then kills everyone',
+    description: 'Carrie book',
   },
   {
     title: 'Cujo',
-    description: 'Cujo is a dog who gets rabies and kills a lot of people',
+    description: 'Cujo is a dog',
   },
 ];
 
