@@ -6,6 +6,7 @@ import Button from './Button';
 import AppBar from './AppBar';
 import List from './List';
 import ListItem from './ListItem';
+import BookIcon from './BookIcon';
 
 const Controls = {
   TextInput,
@@ -15,6 +16,7 @@ const Controls = {
   AppBar,
   List,
   ListItem,
+  BookIcon,
 };
 
 export default Controls;

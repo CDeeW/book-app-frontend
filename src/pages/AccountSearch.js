@@ -9,6 +9,7 @@ const APIKEY = 'AIzaSyDBlYPC0CKuF8f0VTN4Q01B5NlzKdPxV0A';
 
 const AccountSearch = () => {
   const [search, setSearch] = useState('');
+  const [books, setBooks] = useState('');
 
   const handleSubmit = () => {
     getBooks(search);
@@ -17,7 +18,10 @@ const AccountSearch = () => {
   const getBooks = async (search) => {
     console.log('submitted search');
     const response = await getBooksFromApi(search);
-    console.log(response);
+    //console.log(response);
+    setBooks(response.data.items);
+    console.log('here');
+    console.log(books);
   };
 
   const handleInputChange = (e) => {
@@ -40,6 +44,10 @@ const AccountSearch = () => {
                 BookList From Google Books API
               </Typography>
             </Grid>
+            {books &&
+              books.map((book, index) => (
+                <Controls.BookIcon key={index} book={book} />
+              ))}
           </Grid>
         </Paper>
       </Container>
