@@ -10,6 +10,7 @@ const APIKEY = 'AIzaSyDBlYPC0CKuF8f0VTN4Q01B5NlzKdPxV0A';
 const AccountSearch = () => {
   const [search, setSearch] = useState('');
   const [books, setBooks] = useState('');
+  const [bookshelf, setBookshelf] = useState('');
 
   const handleSubmit = () => {
     getBooks(search);
@@ -21,7 +22,7 @@ const AccountSearch = () => {
     //console.log(response);
     setBooks(response.data.items);
     console.log('here');
-    console.log(books);
+    console.log(JSON.stringify(books));
   };
 
   const handleInputChange = (e) => {
@@ -31,7 +32,7 @@ const AccountSearch = () => {
   return (
     <>
       <Controls.AppBar />
-      <Container>
+      <Container xs={12}>
         <Paper>
           <Grid container>
             <Grid item xs={2}>
@@ -44,10 +45,12 @@ const AccountSearch = () => {
                 BookList From Google Books API
               </Typography>
             </Grid>
-            {books &&
-              books.map((book, index) => (
-                <Controls.BookIcon key={index} book={book} />
-              ))}
+            <Grid item>
+              {books &&
+                books.map((book, index) => (
+                  <Controls.BookIcon key={index} book={book} />
+                ))}
+            </Grid>
           </Grid>
         </Paper>
       </Container>

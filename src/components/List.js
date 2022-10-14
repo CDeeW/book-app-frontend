@@ -34,7 +34,7 @@ const List = (props) => {
         <>
           <Grid container>
             <Grid item xs={3}>
-              <Controls.ListItem item={item} index={index} />
+              <Controls.ListItem item={item} index={index} key={index} />
             </Grid>
           </Grid>
         </>

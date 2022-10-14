@@ -3,8 +3,8 @@ import { useForm, Form } from './useForm';
 
 import { Container, Grid } from '@material-ui/core';
 
-import Controls from './Controls';
-import { saveUserAccount } from '../services/userService';
+import Controls from '../Controls';
+import { saveUserAccount } from '../../services/userService';
 import { useNavigate } from 'react-router-dom';
 
 const CreateAccountForm = () => {

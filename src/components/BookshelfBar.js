@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Controls from '../components/Controls';
 
 import {
   Box,
@@ -15,13 +16,8 @@ import {
   Typography,
 } from '@material-ui/core';
 
-export default function BookshelfBar() {
-  const bookShelves = [
-    'BookShelf 1',
-    'BookShelf 2',
-    'BookShelf 3',
-    'BookShelf 4',
-  ];
+export default function BookshelfBar(props) {
+  const { bookshelfs, setSelectedBookshelf } = props;
 
   const [state, setState] = React.useState({
     top: false,
@@ -49,9 +45,13 @@ export default function BookshelfBar() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {bookShelves.map((text, index) => (
+        {bookshelfs.map((bookshelf, index) => (
           <>
-            <div key={index}>{text}</div>
+            {/* <div key={index}>{bookshelf.name}</div> */}
+            <Controls.Button
+              text={bookshelf.name}
+              onClick={() => setSelectedBookshelf(bookshelf)}
+            />
             <Divider light />
           </>
         ))}
@@ -63,7 +63,7 @@ export default function BookshelfBar() {
     <div>
       {/* {['left', 'right', 'top', 'bottom'].map((anchor) => ( */}
       <React.Fragment key={'left'}>
-        <Button onClick={toggleDrawer('left', true)}>{'left'}</Button>
+        <Button onClick={toggleDrawer('left', true)}>{'Bookshelves'}</Button>
         <Drawer
           anchor={'left'}
           open={state['left']}

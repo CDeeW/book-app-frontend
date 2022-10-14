@@ -1,8 +1,8 @@
 import React from 'react';
 import { Form, useForm } from './useForm';
-import Controls from '../components/Controls';
+import Controls from '../Controls';
 import { useNavigate } from 'react-router-dom';
-import { confirmUserEmailAndPassword } from '../services/userService';
+import { confirmUserEmailAndPassword } from '../../services/userService';
 import { useCookies } from 'react-cookie';
 
 const initialFValues = {

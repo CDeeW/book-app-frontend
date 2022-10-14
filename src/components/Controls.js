@@ -1,8 +1,8 @@
 // We create this file so that we can easily import the controls with de
-import TextInput from './TextInput';
-import RadioGroup from './RadioGroup';
-import DatePicker from './DatePicker';
-import Button from './Button';
+import TextInput from './forms/formComponents/TextInput';
+import RadioGroup from './forms/formComponents/RadioGroup';
+import DatePicker from './forms/formComponents/DatePicker';
+import Button from './forms/formComponents/Button';
 import AppBar from './AppBar';
 import List from './List';
 import ListItem from './ListItem';

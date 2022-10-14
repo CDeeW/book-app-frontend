@@ -1,31 +1,16 @@
-import React from 'react';
-import Container from '@material-ui/core/Container';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import { useForm, Form } from '../components/useForm';
-
 import {
-  Box,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
+  Container,
+  AppBar,
+  Toolbar,
+  Grid,
+  Button,
+  Typography,
   makeStyles,
-  Modal,
-  Paper,
 } from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
-import TextField from '@material-ui/core/TextField';
-// import CreateAccount from '@material-ui/core/CreateAccount';
 import { useState } from 'react';
 import Controls from '../components/Controls';
-import LogInForm from '../components/LogInForm';
-import LogInModalDialog from '../components/LogInModalDialog';
+import LogInModalDialog from '../components/modals/LogInModalDialog';
 
 const useStyles = makeStyles({
   btn: {

@@ -11,16 +11,17 @@ export const saveUserAccount = async (values) => {
   }
 };
 
-export const getUserByUserId = async (userIdObject) => {
+export const getUserByUserIdService = async (userIdObject) => {
   try {
     console.log('getUserByUserId: ' + JSON.stringify(userIdObject));
     console.log('getUserByUserId: ' + userIdObject);
 
     const response = await axios.get(URL, userIdObject);
+    console.log('FAIL');
     console.log('SERVICE' + JSON.stringify(response));
     return response;
   } catch (err) {
-    console.log(err);
+    console.log(err.response);
   }
 };
 

@@ -6,9 +6,9 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import LogInForm from './LogInForm';
-import Controls from '../components/Controls';
-import AccountBookshelf from '../pages/AccountBookshelf';
+import LogInForm from '../forms/LogInForm';
+import Controls from '../Controls';
+import AccountBookshelf from '../../pages/AccountBookshelf';
 import { useNavigate } from 'react-router-dom';
 
 const LogInModalDialog = ({ open, setOpen, handleClose }) => {
